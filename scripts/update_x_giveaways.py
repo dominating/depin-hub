@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 
 COOKIE_FILE = "twitter_cookies.json"
 HTML_FILE = "../index.html"
-SEARCH_URL = "https://x.com/search?q=(%23DePIN%20OR%20%23Crypto%20OR%20%23Mining)%20(%23Giveaway%20OR%20%23Airdrop)%20min_faves%3A50%20within_time%3A24h&src=typed_query&f=top"
+SEARCH_URL = "https://x.com/search?q=%28DePIN%20OR%20ASIC%20OR%20GPU%20OR%20%22Lucky%20Miner%22%20OR%20%22mining%20hardware%22%20OR%20%22AI%20node%22%20OR%20%22NerdMiner%22%20OR%20%22mining%20setup%22%29%20%28giveaway%20OR%20win%29%20-NFT%20-NFTs%20-mint%20-pfp%20min_faves%3A10%20within_time%3A72h&src=typed_query&f=top"
 
 def run_scraper():
     # Setup your X cookies file in depin-hub/scripts/twitter_cookies.json
@@ -98,7 +98,7 @@ def update_html(giveaways):
         html = f.read()
 
     pattern = re.compile(r'(<!-- GIVEAWAYS_START -->)(.*?)(<!-- GIVEAWAYS_END -->)', re.DOTALL)
-    new_html = pattern.sub(rf'\1\n{combined_html}\n                \3', html)
+    new_html = html[:pattern.search(html).start(2)] + '\n' + combined_html + '\n                ' + html[pattern.search(html).end(2):]
 
     with open(html_path, 'w') as f:
         f.write(new_html)
