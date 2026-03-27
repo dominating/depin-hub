@@ -12,7 +12,7 @@ You do not need special "Nano" firmware! You will use the exact same highly opti
 ## 2. Setting Up the Pool (Prohashing)
 Prohashing is the best "Unmineable-style" alternative for low-power devices because of its custom difficulty settings.
 
-1. Create a free account at [Prohashing.com](https://prohashing.com/).
+1. Create a free account at [Prohashing.com](https://cryptol.ink/jTIGYV
 2. Go to **Payout Options** and add your Nano (XNO) wallet address. Set the payout proportion to 100%. Nano has no transaction fees, so daily minimum payouts are incredibly low.
 
 ## 3. Configuring the ESP32
